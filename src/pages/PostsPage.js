@@ -10,7 +10,7 @@ import { handleEditPost, handleDeletePost } from '../plugins/postEdit';
 const PostsPage = ({ favorites = [], addFavorite, removeFavorite, loggedInUser,}) => {
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 25;
+    const postsPerPage = 20;
     const [isCreating, setIsCreating] = useState(false);
     const [editingPost, setEditingPost] = useState(null);
     const [postFormError, setPostFormError] = useState('');

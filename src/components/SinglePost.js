@@ -23,7 +23,6 @@ const SinglePost = ({ post, onDelete, onEdit, canEdit, isFavorite, onToggleFavor
             <h4 onClick={navigatePost}>{post.title}</h4>
             <img src={post.image} alt="" />
             <div onClick={navigateUserPosts}>Username: <h4>{post.username}</h4> </div>
-            {/*<p style={{maxHeight:"200px", overflow:"hidden"}}>{post.description}</p>*/}
             <p style={{borderTop:"2px solid darkgray"}}>{formattedDate}</p>
             <div>
                 <div onClick={onToggleFavorite}>

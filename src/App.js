@@ -55,7 +55,6 @@ const App = () => {
         try {
             const response = await http.post('/deletepost', { id: postId, secretKey });
             if (response.data && response.data.success) {
-                console.log('Post deleted successfully');
                 setPosts((prevPosts) => prevPosts.filter(post => post.id !== postId));
             } else {
                 console.error('Failed to delete post:', response.data ? response.data.message : response);

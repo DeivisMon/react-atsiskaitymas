@@ -7,7 +7,7 @@ import { handleEditPost, handleDeletePost } from '../plugins/postEdit';
 
 const SinglePostPage = ({ loggedInUser, favorites = [], handleUpdatePost, addFavorite, removeFavorite, setPosts }) => {
     const [post, setPost] = useState(null);
-    const [isCreating, setIsCreating] = useState(false); //
+    const [isCreating, setIsCreating] = useState(false);
     const [editingPost, setEditingPost] = useState(null);
     const params = useParams();
     const nav = useNavigate();
@@ -55,13 +55,14 @@ const SinglePostPage = ({ loggedInUser, favorites = [], handleUpdatePost, addFav
 
     return (
         <>
-            {editingPost ? (
+
+            {editingPost && (
                 <PostFormPage
                     initialData={editingPost}
                     onSave={handleSavePost}
                     onCancel={handleCancel}
                 />
-            ) : (
+                )}
                 <>
                     <h2>{post ? post.title : 'Loading...'}</h2>
                     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -90,7 +91,7 @@ const SinglePostPage = ({ loggedInUser, favorites = [], handleUpdatePost, addFav
                         )}
                     </div>
                 </>
-            )}
+
         </>
     );
 };
