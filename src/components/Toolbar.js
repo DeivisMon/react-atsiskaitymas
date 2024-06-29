@@ -19,16 +19,22 @@ const Toolbar = ({ favoritesCount }) => {
         setLoggedInUser(null);
         navigate('/');
     };
-
+    const username = loggedInUser ? loggedInUser.username || loggedInUser.name || loggedInUser.userName : null;
     return (
         <>
             <div className='toolbar'>
                 <NavLink className='toolbarLink' to="/posts/">All posts</NavLink>
+
                 {loggedInUser ? (
                     <div className="userInfo" style={{textAlign: 'center'}}>
                         <span>Welcome, {loggedInUser.name}</span>
                         <button className='logoutBtn' onClick={handleLogout}>Logout</button>
-                        <NavLink className="loginLinks" to='/favorites'><p>Favorites: {favoritesCount}</p></NavLink>
+                        <div style={{display:"flex"}}>
+                            <NavLink className="loginLinks" to='/favorites'><p>Favorites: {favoritesCount}</p></NavLink>
+                            <span style={{marginRight:"7px"}}>|</span>
+                            <NavLink className="loginLinks" to={`/posts/${username}`}>My Posts</NavLink>
+                        </div>
+
                     </div>
                 ) : (
                     <div>

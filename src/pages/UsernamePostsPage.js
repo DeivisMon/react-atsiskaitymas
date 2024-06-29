@@ -23,6 +23,7 @@ const UsernamePostsPage = ({ favorites = [], addFavorite, removeFavorite}) => {
         nav('/posts/');
     };
 
+
     return (
         <>
             <h2>Posts by {params.username}</h2>
